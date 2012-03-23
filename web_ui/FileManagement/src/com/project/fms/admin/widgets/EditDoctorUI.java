@@ -16,8 +16,8 @@ import com.smartgwt.client.widgets.form.fields.events.ClickHandler;
 public class EditDoctorUI extends DynamicForm {
 
 	public EditDoctorUI() {
-		setMargin(50);
-		setNumCols(4);  
+		setMargin(60);
+		//setNumCols(4);  
   
         final Map<String, String[]> clinicsMap = new HashMap<String, String[]>();
         clinicsMap.put("Clinic 1", new String[]{"Doctor 1", "Doctor 9"});  

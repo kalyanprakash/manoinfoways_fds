@@ -39,12 +39,22 @@ public class AdminUI extends Canvas {
 		EditClinic editClinicObj = new EditClinic();
 		tTab5.setPane(editClinicObj);
 		
+		Tab tTabEditDoctor = new Tab("Edit Doctor Info");
+		EditDoctor editDocObj = new EditDoctor();
+		tTabEditDoctor.setPane(editDocObj);
+		
+		Tab tTabGenerateList = new Tab("Generate Priority File List");
+		GeneratePriorityList generateList = new GeneratePriorityList();
+		tTabGenerateList.setPane(generateList);
+		
 		tabSet.addTab(tTab0);
 		tabSet.addTab(tTab1);
 		tabSet.addTab(tTab2);
 		tabSet.addTab(tTab3);
 		tabSet.addTab(tTab4);
 		tabSet.addTab(tTab5);
+		tabSet.addTab(tTabEditDoctor);
+		tabSet.addTab(tTabGenerateList);
 		
 		VLayout vLayout = new VLayout();
 		vLayout.setWidth100();  
