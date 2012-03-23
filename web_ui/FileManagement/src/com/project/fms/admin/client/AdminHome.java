@@ -11,6 +11,7 @@ import com.smartgwt.client.widgets.layout.VLayout;
 
 public class AdminHome implements EntryPoint {
 
+	//Test 
 	@Override
 	public void onModuleLoad() {
 		final VLayout vLayoutDefaultLayoutAlign = new VLayout();  
