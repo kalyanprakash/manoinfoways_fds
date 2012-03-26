@@ -27,8 +27,18 @@ public class ClinicData  implements java.io.Serializable {
 
     public ClinicData() {
     }
-
-	
+    
+    public ClinicData(int clinicId)
+    {
+    	this.clinicId = clinicId;
+    }
+    
+    public ClinicData(int clinicId, String clinicAbbr)
+    {
+    	this.clinicId = clinicId;
+    	this.clinicAbbr = clinicAbbr;
+    }
+    
     public ClinicData(String clinicAbbr) {
         this.clinicAbbr = clinicAbbr;
     }
