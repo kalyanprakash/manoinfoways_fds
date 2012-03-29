@@ -52,6 +52,17 @@ public class EditDoctor extends Canvas {
 	    
 	    HLayout buttonLayout = new HLayout();
 	    
+	    IButton addButton = new IButton("Add New");  
+	    addButton.setTop(250);  
+	    addButton.addClickHandler(new ClickHandler() {  
+            public void onClick(ClickEvent event) {  
+                doctorGrid.startEditingNew();  
+            }  
+        });
+	    
+	    addButton.setWidth(120);
+	    addButton.setAlign(Alignment.CENTER);
+        
 	    
 	    IButton submitButton = new IButton("Submit");  
 	    submitButton.addClickHandler(new ClickHandler() {  
@@ -59,8 +70,7 @@ public class EditDoctor extends Canvas {
                                 
             }             
         });
-	    //submitButton.setLeft(200); 
-	    //submitButton.setTop(140);  
+	     
 	    submitButton.setWidth(120);
 	    submitButton.setAlign(Alignment.CENTER);
           
@@ -76,6 +86,7 @@ public class EditDoctor extends Canvas {
         saveButton.setWidth(120);
         saveButton.setAlign(Alignment.CENTER);
         
+        buttonLayout.addMember(addButton);
         buttonLayout.addMember(submitButton);
         buttonLayout.addMember(saveButton);
         buttonLayout.setMembersMargin(10);
