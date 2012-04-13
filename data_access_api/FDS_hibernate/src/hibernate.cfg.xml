@@ -14,8 +14,10 @@
         <property name="hibernate.current_session_context_class">thread</property>
         <mapping resource="com/manoinfoways/model/ClinicData.hbm.xml" />
         <mapping resource="com/manoinfoways/model/TranscriberData.hbm.xml" />
+        <mapping resource="com/manoinfoways/model/FileTransactionData.hbm.xml" />
+        <mapping resource="com/manoinfoways/model/InbounVoiceFilesData.hbm.xml" />
         <mapping resource="com/manoinfoways/model/DoctorData.hbm.xml" />
-        <mapping resource="com/manoinfoways/model/VoiceFilesData.hbm.xml" />
+        <mapping resource="com/manoinfoways/model/VoiceFilesAssignmentData.hbm.xml" />
         <mapping resource="com/manoinfoways/model/TranscriberTypeData.hbm.xml" />
         <mapping resource="com/manoinfoways/model/ClinicRequirements.hbm.xml" />
         <mapping resource="com/manoinfoways/model/ClinicConnectionDetails.hbm.xml" />
