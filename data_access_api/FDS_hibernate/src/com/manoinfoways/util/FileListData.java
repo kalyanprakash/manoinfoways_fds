@@ -3,12 +3,18 @@ package com.manoinfoways.util;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
+
+import com.manoinfoways.ejb.ClinicDataBean;
+import com.manoinfoways.ejb.DoctorDataBean;
+import com.manoinfoways.ejb.InboundVoiceFilesDataBean;
+import com.manoinfoways.model.InboundVoiceFilesData;
 
 public class FileListData {
 	public static void main(String[] args)
@@ -19,10 +25,12 @@ public class FileListData {
 		getFileComponents(list);
 	}
 
-	private static List<InboundVoiceFilesData> getFileComponents(List<File> list)
+	private static void getFileComponents(List<File> list)
 			throws UnsupportedAudioFileException, IOException {
 
-		List<InboundVoiceFilesData> inputVoiceFiles = new ArrayList<InboundVoiceFilesData>();
+		InboundVoiceFilesDataBean inboundVoiceFilesDataBean = new InboundVoiceFilesDataBean();
+		DoctorDataBean doctorDataBean = new DoctorDataBean();
+		ClinicDataBean clinicDataBean = new ClinicDataBean();
 
 		for (int i = 0; i < list.size(); i++) {
 			// System.out.println(list.get(i).toString());
@@ -43,15 +51,18 @@ public class FileListData {
 				double durationInSeconds = (frames + 0.0)
 						/ format.getFrameRate();
 
+				Date date = new Date();
+				
 				System.out.println(clinicName + "     " + docId + "     "
 						+ filePath);
 
 				InboundVoiceFilesData vfData = new InboundVoiceFilesData(
-						filePath, clinicName, docId, list.get(i).length());
-				inputVoiceFiles.add(vfData);
+						 doctorDataBean.findById(doctorDataBean
+								.getDoctorIdByAbbr("doctorAbbr")), clinicDataBean.findById(clinicDataBean
+								.getClinicIdByAbbr("doctorAbbr")), filePath, date, list.get(i).length());
+				inboundVoiceFilesDataBean.persist(vfData);
 			}
 		}
-		return inputVoiceFiles;
 	}
 
 	private static void getFiles(File folder, List<File> list) {
