@@ -52,15 +52,15 @@ public class EditClinic extends DynamicForm {
         doctorSelecteditem.setDefaultValue("Select Clinic");
         doctorSelecteditem.setAddUnknownValues(false);  
         
-        TextItem docName = new TextItem("docName", "Name: ");
-        TextItem docEmail = new TextItem("docEmail", "Email ID: ");
-        TextItem docPhno = new TextItem("docPhno", "Phone Number: ");
-        TextItem docClinic = new TextItem("docClinic", "Clinic: ");
+        MyTextItem docName = new MyTextItem("docName", "Name: ");
+        MyTextItem docEmail = new MyTextItem("docEmail", "Email ID: ");
+        MyTextItem docPhno = new MyTextItem("docPhno", "Phone Number: ");
+        MyTextItem docClinic = new MyTextItem("docClinic", "Clinic: ");
         TextAreaItem docAddr1 = new TextAreaItem("docAddr1", "Address1: ");
         TextAreaItem docAddr2 = new TextAreaItem("docAddr2", "Address2: ");
-        TextItem docLocation = new TextItem("docLocation", "Location: ");
-        TextItem docCountry = new TextItem("docCountry", "Country: ");
-        TextItem docPincode = new TextItem("docPincode", "Pincode: ");
+        MyTextItem docLocation = new MyTextItem("docLocation", "Location: ");
+        MyTextItem docCountry = new MyTextItem("docCountry", "Country: ");
+        MyTextItem docPincode = new MyTextItem("docPincode", "Pincode: ");
         
         
         doctorSelecteditem.addChangeHandler(new ChangeHandler() {  

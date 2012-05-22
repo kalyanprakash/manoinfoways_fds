@@ -19,7 +19,7 @@ public class AddTranscriberUI extends DynamicForm{
 		HeaderItem header = new HeaderItem();  
         header.setDefaultValue("Add New Transcriber");  
   
-        TextItem transcriberName = new TextItem("transcriberName", "Name: ");
+        MyTextItem transcriberName = new MyTextItem("transcriberName", "Name: ");
         
         SelectItem transcriberRole = new SelectItem();  
         transcriberRole.setName("transcriberRole");  

@@ -1,5 +1,6 @@
 package com.project.fms.admin.widgets;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import com.project.fms.admin.widgets.data.ClinicConnectionDetailsData;
@@ -118,107 +119,107 @@ public class AddClinicUI extends VLayout {
 				// Submitting Clinic Data values
 
 				ClinicConnectionDetailsData connDetailsData = new ClinicConnectionDetailsData(
-						((TextItem) clinicConnectionFormWidget
+						((MyTextItem) clinicConnectionFormWidget
 								.getItem("clinicConnectionType"))
 								.getValueAsString(),
-						((TextItem) clinicConnectionFormWidget.getItem("userName"))
+						((MyTextItem) clinicConnectionFormWidget.getItem("userName"))
 								.getValueAsString(),
-						((TextItem) clinicConnectionFormWidget.getItem("password"))
+						((MyTextItem) clinicConnectionFormWidget.getItem("password"))
 								.getValueAsString(),
-						((TextItem) clinicConnectionFormWidget
+						((MyTextItem) clinicConnectionFormWidget
 								.getItem("systemLoginUserName"))
 								.getValueAsString(),
-						((TextItem) clinicConnectionFormWidget
+						((MyTextItem) clinicConnectionFormWidget
 								.getItem("systemLoginPassword"))
 								.getValueAsString(),
-						((TextItem) clinicConnectionFormWidget
+						((MyTextItem) clinicConnectionFormWidget
 								.getItem("typeOfSoftware")).getValueAsString(),
 						((SelectItem) clinicConnectionFormWidget
 								.getItem("mailOrFtpforVoiceFiles"))
 								.getValueAsString(),
-						((TextItem) clinicConnectionFormWidget
+						((MyTextItem) clinicConnectionFormWidget
 								.getItem("recorderUsed")).getValueAsString(),
-						((TextItem) clinicConnectionFormWidget
+						((MyTextItem) clinicConnectionFormWidget
 								.getItem("typeOfVoiceFiles"))
 								.getValueAsString(),
-						((TextItem) clinicConnectionFormWidget
+						((MyTextItem) clinicConnectionFormWidget
 								.getItem("voiceFilesPath")).getValueAsString(),
-						((TextItem) clinicConnectionFormWidget
+						((MyTextItem) clinicConnectionFormWidget
 								.getItem("transcriptsPath")).getValueAsString(),
 						convertDateToString(((DateItem) clinicConnectionFormWidget
 								.getItem("folderDate")).getValueAsDate()));
 
 				ClinicMetadataData metadata = new ClinicMetadataData(
-						((TextItem) clinicManagersWidget
+						((MyTextItem) clinicManagersWidget
 								.getItem("transcriptionsInchargeName"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((EmailTextItem) clinicManagersWidget
 								.getItem("transcriptionsInchargeEmail"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((MyTextItem) clinicManagersWidget
 								.getItem("transcriptionInchargePhnNo"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((MyTextItem) clinicManagersWidget
 								.getItem("trancriptionInchargeFaxNo"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((MyTextItem) clinicManagersWidget
 								.getItem("transcriptionInchargeAddress"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((MyTextItem) clinicManagersWidget
 								.getItem("technicalPersonName"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((EmailTextItem) clinicManagersWidget
 								.getItem("technicalPersonEmail"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((MyTextItem) clinicManagersWidget
 								.getItem("technicalPersonPhnNo"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((MyTextItem) clinicManagersWidget
 								.getItem("technicalPersonFaxNo"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((MyTextItem) clinicManagersWidget
 								.getItem("technicalPersonAddress"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((MyTextItem) clinicManagersWidget
 								.getItem("softwarePersonName"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((EmailTextItem) clinicManagersWidget
 								.getItem("softwarePersonEmail"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((MyTextItem) clinicManagersWidget
 								.getItem("softwarePersonPhnNo"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((MyTextItem) clinicManagersWidget
 								.getItem("softwarePersonCellNo"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((MyTextItem) clinicManagersWidget
 								.getItem("softwarePersonAddress"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((EmailTextItem) clinicManagersWidget
 								.getItem("emailForPatientList"))
 								.getValueAsString(),
-						((TextItem) clinicManagersWidget
+						((EmailTextItem) clinicManagersWidget
 								.getItem("emailForInvoices"))
 								.getValueAsString());
 				String clinicAbbr="";
 				if(clinicDataFormWidget.getCurrentFormType().equalsIgnoreCase("add")){
-					clinicAbbr = ((TextItem) clinicDataFormWidget.getItem("clinicAbbr")).getValueAsString().toUpperCase();
+					clinicAbbr = ((MyTextItem) clinicDataFormWidget.getItem("clinicAbbr")).getValueAsString().toUpperCase();
 				}else{
 					clinicAbbr = ((SelectItem) clinicDataFormWidget.getItem("clinicAbbr")).getSelectedRecord().getAttributeAsString("clinicAbbr");
 				}
 				ClinicData clinicData = new ClinicData(
 						clinicAbbr,
-						((TextItem) clinicDataFormWidget.getItem("clinicName"))
+						((MyTextItem) clinicDataFormWidget.getItem("clinicName"))
 								.getValueAsString(),
 						((TextAreaItem) clinicDataFormWidget
 								.getItem("addressLine1")).getValueAsString(),
 						((TextAreaItem) clinicDataFormWidget
 								.getItem("addressLine2")).getValueAsString(),
-						((TextItem) clinicDataFormWidget.getItem("location"))
+						((MyTextItem) clinicDataFormWidget.getItem("location"))
 								.getValueAsString(),
-						((TextItem) clinicDataFormWidget.getItem("country"))
+						((MyTextItem) clinicDataFormWidget.getItem("country"))
 								.getValueAsString(),
-						((TextItem) clinicDataFormWidget.getItem("zipcode"))
+						((MyTextItem) clinicDataFormWidget.getItem("zipcode"))
 								.getValueAsString(), connDetailsData, metadata);
 
 				clinicDataFormWidget.clinicDataDs.addData(clinicData,
@@ -279,6 +280,12 @@ public class AddClinicUI extends VLayout {
 	 * @return
 	 */
 	private String convertDateToString(Date date) {
+		
+		if (date == null)
+		{
+			date = new Date(0);
+		}
+		
 		String dateString = new Integer(1900 + date.getYear()).toString() + "-";
 
 		// Adding padding to make month and date as MM/dd

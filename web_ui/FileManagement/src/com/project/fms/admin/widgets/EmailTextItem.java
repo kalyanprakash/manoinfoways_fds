@@ -11,6 +11,7 @@ public class EmailTextItem extends TextItem{
 		super();
 		super.setWidth(250);
 		super.setRequired(true);
+		super.setValue(" ");
 		regExpValidator.setExpression("^([a-zA-Z0-9_.\\-+])+@(([a-zA-Z0-9\\-])+\\.)+[a-zA-Z0-9]{2,4}$");  
 	    super.setValidators(regExpValidator);
 		// TODO Auto-generated constructor stub
@@ -20,6 +21,7 @@ public class EmailTextItem extends TextItem{
 		super(jsObj);
 		super.setWidth(250);
 		super.setRequired(true);
+		super.setValue(" ");
 		regExpValidator.setExpression("^([a-zA-Z0-9_.\\-+])+@(([a-zA-Z0-9\\-])+\\.)+[a-zA-Z0-9]{2,4}$");  
 	    super.setValidators(regExpValidator);
 		// TODO Auto-generated constructor stub
@@ -29,6 +31,7 @@ public class EmailTextItem extends TextItem{
 		super(name, title);
 		super.setWidth(250);
 		super.setRequired(true);
+		super.setValue(" ");
 		regExpValidator.setExpression("^([a-zA-Z0-9_.\\-+])+@(([a-zA-Z0-9\\-])+\\.)+[a-zA-Z0-9]{2,4}$");  
 	    super.setValidators(regExpValidator);
 		// TODO Auto-generated constructor stub
@@ -38,6 +41,7 @@ public class EmailTextItem extends TextItem{
 		super(name);
 		super.setWidth(250);
 		super.setRequired(true);
+		super.setValue(" ");
 		regExpValidator.setExpression("^([a-zA-Z0-9_.\\-+])+@(([a-zA-Z0-9\\-])+\\.)+[a-zA-Z0-9]{2,4}$");  
 	    super.setValidators(regExpValidator);
 		// TODO Auto-generated constructor stub

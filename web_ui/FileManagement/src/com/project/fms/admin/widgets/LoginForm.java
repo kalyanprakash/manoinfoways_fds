@@ -17,7 +17,7 @@ public class LoginForm extends DynamicForm{
         header.setDefaultValue("Login to File Systems Management");  
   
         PasswordItem passwordItem = new PasswordItem("password", "Password: ");
-        TextItem loginId = new TextItem("loginID", "Login ID: ");
+        MyTextItem loginId = new MyTextItem("loginID", "Login ID: ");
         
 //        loginId.setRequired(true);
 //        passwordItem.setRequired(true);

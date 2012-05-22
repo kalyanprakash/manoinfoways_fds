@@ -9,32 +9,28 @@ public class MyTextItem extends TextItem{
 		super();
 		super.setWidth(250);
 		super.setRequired(true);
-		super.setValue("");
-		// TODO Auto-generated constructor stub
+		super.setValue(" ");
 	}
 
 	public MyTextItem(JavaScriptObject jsObj) {
 		super(jsObj);
 		super.setWidth(250);
 		super.setRequired(true);
-		super.setValue("");
-		// TODO Auto-generated constructor stub
+		super.setValue(" ");
 	}
 
 	public MyTextItem(String name, String title) {
 		super(name, title);
 		super.setWidth(250);
 		super.setRequired(true);
-		super.setValue("");
-		// TODO Auto-generated constructor stub
+		super.setValue(" ");
 	}
 
 	public MyTextItem(String name) {
 		super(name);
 		super.setWidth(250);
 		super.setRequired(true);
-		super.setValue("");
-		// TODO Auto-generated constructor stub
+		super.setValue(" ");
 	}
 
 	
